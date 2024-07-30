@@ -18,13 +18,13 @@ import {
 } from "./controllers/authController.js";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_KEY);
-
 // Load environment variables from a .env file
 dotenv.config();
 
 // Create Express application
 const app = express();
+
+const stripe = new Stripe(process.env.STRIPE_KEY);
 
 // Middleware
 app.use(express.static("public"));
@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: "https://ecommerce-deploy-lft5.vercel.app",
+    origin: "http://localhost:3000",
   })
 );
 
@@ -183,7 +183,7 @@ app.post("/create-checkout-session", async (req, res) => {
   const price = await stripe.prices.create({
     product: product.id,
     unit_amount: subtotal * 100,
-    currency: "inr",
+    currency: "usd",
   });
 
   const session = await stripe.checkout.sessions.create({
