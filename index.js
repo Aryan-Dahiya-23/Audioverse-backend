@@ -5,7 +5,6 @@ import helmet from "helmet";
 import dotenv from "dotenv";
 import multer from "multer";
 import jwt from "jsonwebtoken";
-const path = require("path");
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import User from "./models/User.js";
@@ -29,8 +28,7 @@ const app = express();
 
 // Middleware
 app.use(express.static("public"));
-// app.use("/uploads", express.static("uploads"));
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static("uploads"));
 
 app.use(helmet());
 
