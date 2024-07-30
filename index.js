@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: "https://ecommerce-deploy-lft5.vercel.app",
+    origin: "http://localhost:3000",
   })
 );
 

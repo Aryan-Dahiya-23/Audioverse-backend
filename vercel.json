@@ -9,7 +9,14 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/"
+        "dest": "/index.js"
+      },
+      {
+        "src": "/uploads/products/(.*)",
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        },
+        "dest": "/uploads/products/$1"
       }
     ]
   }
