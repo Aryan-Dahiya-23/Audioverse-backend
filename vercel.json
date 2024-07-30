@@ -1,4 +1,4 @@
-{
+  {
     "version": 2,
     "builds": [
       {
@@ -8,16 +8,17 @@
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/index.js"
-      },
-      {
-        "src": "/uploads/products/(.*)",
+        "src": "/uploads/(.*)",
         "headers": {
           "Access-Control-Allow-Origin": "*"
         },
-        "dest": "/uploads/products/$1"
+        "dest": "/uploads/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.js"
       }
     ]
   }
+  
   
